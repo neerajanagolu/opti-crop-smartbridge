@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OptiCrop — Smart Crop Recommendation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <nav class="navbar-new">
+    <div class="nav-links">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/about" class="nav-item">About</a>
+      <a href="/find" class="nav-item active">FindYourCrop</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="hero">
+      <h1>Precision Farming, Powered by AI</h1>
+      <p>Input your soil metrics and local climate data.
+         Our machine learning engine will analyze the parameters to recommend
+         the optimal crop for maximum yield and sustainability.</p>
+    </div>
+
+    <form action="/predict" method="POST" class="crop-form">
+
+      <div class="form-section">
+        <h2 class="section-title">🌿 Soil Composition Metrics</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="nitrogen">Nitrogen (N) <span class="unit">kg/ha</span></label>
+            <input type="number" id="nitrogen" name="nitrogen"
+                   placeholder="e.g. 90" min="0" max="140"
+                   step="0.1" required>
+          </div>
+          <div class="form-group">
+            <label for="phosphorus">Phosphorus (P) <span class="unit">kg/ha</span></label>
+            <input type="number" id="phosphorus" name="phosphorus"
+                   placeholder="e.g. 42" min="0" max="145"
+                   step="0.1" required>
+          </div>
+          <div class="form-group">
+            <label for="potassium">Potassium (K) <span class="unit">kg/ha</span></label>
+            <input type="number" id="potassium" name="potassium"
+                   placeholder="e.g. 43" min="0" max="205"
+                   step="0.1" required>
+          </div>
+          <div class="form-group">
+            <label for="ph">Soil pH <span class="unit">0–14</span></label>
+            <input type="number" id="ph" name="ph"
+                   placeholder="e.g. 6.5" min="0" max="14"
+                   step="0.01" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2 class="section-title">🌤️ Environmental Factors</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="temperature">Temperature <span class="unit">°C</span></label>
+            <input type="number" id="temperature" name="temperature"
+                   placeholder="e.g. 21" min="0" max="50"
+                   step="0.1" required>
+          </div>
+          <div class="form-group">
+            <label for="humidity">Humidity <span class="unit">%</span></label>
+            <input type="number" id="humidity" name="humidity"
+                   placeholder="e.g. 82" min="0" max="100"
+                   step="0.1" required>
+          </div>
+          <div class="form-group">
+            <label for="rainfall">Rainfall <span class="unit">mm</span></label>
+            <input type="number" id="rainfall" name="rainfall"
+                   placeholder="e.g. 210" min="0" max="300"
+                   step="0.1" required>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-predict">
+        ✨ Generate Yield Optimization Strategy
+      </button>
+
+    </form>
+  </main>
+
+  <footer>
+    <p>OptiCrop · Powered by Machine Learning · Built by <strong>Krishna Karthikeya Jeedigunta</strong></p>
+  </footer>
+
+</body>
+</html>
